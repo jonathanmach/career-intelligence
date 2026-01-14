@@ -8,6 +8,8 @@ interface TemplateSelectorProps {
   onTemplateChange: (templateId: string) => void;
   isEditMode?: boolean;
   onToggleEdit?: () => void;
+  showIndustryScore?: boolean;
+  onToggleIndustryScore?: () => void;
 }
 
 export const TemplateSelector: React.FC<TemplateSelectorProps> = ({
@@ -15,6 +17,8 @@ export const TemplateSelector: React.FC<TemplateSelectorProps> = ({
   onTemplateChange,
   isEditMode = false,
   onToggleEdit,
+  showIndustryScore = false,
+  onToggleIndustryScore,
 }) => {
   const templates = TemplateRegistry.getAll();
   const navigate = useNavigate();
@@ -121,6 +125,32 @@ export const TemplateSelector: React.FC<TemplateSelectorProps> = ({
                   Edit YAML
                 </>
               )}
+            </button>
+          )}
+
+          {onToggleIndustryScore && (
+            <button
+              onClick={onToggleIndustryScore}
+              className={`flex items-center font-medium px-4 py-2 rounded-md transition-colors whitespace-nowrap ${
+                showIndustryScore
+                  ? 'bg-slate-900 text-white hover:bg-slate-800'
+                  : 'bg-slate-100 text-slate-700 hover:bg-slate-200 dark:bg-slate-700 dark:text-slate-100 dark:hover:bg-slate-600'
+              }`}
+              title="Toggle industry score"
+            >
+              <svg
+                className="w-5 h-5 mr-2"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M3 3v18h18"></path>
+                <path d="M7 13l4-4 4 4 5-6"></path>
+              </svg>
+              Industry Score
             </button>
           )}
 

@@ -6,6 +6,7 @@ import { TemplateSelector } from './TemplateSelector';
 import { LoadingSpinner } from './LoadingSpinner';
 import { ErrorDisplay } from './ErrorDisplay';
 import { YAMLEditor } from './YAMLEditor';
+import { IndustryScorePanel } from './IndustryScorePanel';
 
 interface CVRendererProps {
   repoUrl?: string;
@@ -18,6 +19,7 @@ export const CVRenderer: React.FC<CVRendererProps> = ({ repoUrl }) => {
   const [error, setError] = useState<Error | null>(null);
   const [yamlError, setYamlError] = useState<string | null>(null);
   const [isEditMode, setIsEditMode] = useState(false);
+  const [showIndustryScore, setShowIndustryScore] = useState(false);
   const defaultTemplate = TemplateRegistry.getDefault();
   const [selectedTemplateId, setSelectedTemplateId] = useState(
     defaultTemplate?.id || 'classic'
@@ -83,6 +85,8 @@ export const CVRenderer: React.FC<CVRendererProps> = ({ repoUrl }) => {
           onTemplateChange={setSelectedTemplateId}
           isEditMode={isEditMode}
           onToggleEdit={toggleEditMode}
+          showIndustryScore={showIndustryScore}
+          onToggleIndustryScore={() => setShowIndustryScore((prev) => !prev)}
         />
 
         {isEditMode ? (
@@ -124,7 +128,16 @@ export const CVRenderer: React.FC<CVRendererProps> = ({ repoUrl }) => {
             </div>
           </div>
         ) : (
-          <TemplateComponent data={cvData} />
+          <div className={showIndustryScore ? 'grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_500px] gap-6 items-start' : ''}>
+            <div>
+              <TemplateComponent data={cvData} />
+            </div>
+            {showIndustryScore && (
+              <aside className="print:hidden bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700 transition-colors lg:sticky lg:top-8">
+                <IndustryScorePanel />
+              </aside>
+            )}
+          </div>
         )}
       </div>
     </div>

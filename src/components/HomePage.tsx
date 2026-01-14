@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DarkModeToggle } from './DarkModeToggle';
+import { IndustryScorePanel } from './IndustryScorePanel';
 
 export const HomePage: React.FC = () => {
   const [repoInput, setRepoInput] = useState('');
@@ -144,6 +145,11 @@ export const HomePage: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Industry Score Prototype */}
+          <div className="mt-10 pt-6 border-t dark:border-gray-700">
+            <IndustryScorePanel />
           </div>
         </div>
 

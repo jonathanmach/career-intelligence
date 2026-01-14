@@ -1,0 +1,76 @@
+@media print {
+  /* Force color printing */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Remove default margins */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Hide elements that shouldn't be printed */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Set page size and margins */
+  @page {
+    size: A4;
+    margin: 1.5cm;
+  }
+
+  /* Prevent page breaks in unwanted places */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Ensure print-specific backgrounds are visible */
+  .print\:bg-white {
+    background-color: white !important;
+  }
+
+  .print\:p-0 {
+    padding: 0 !important;
+  }
+
+  /* Optimize text for print */
+  body {
+    font-size: 11pt;
+    line-height: 1.4;
+  }
+
+  /* Remove shadows and unnecessary visual effects */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Ensure links are visible */
+  a {
+    text-decoration: underline;
+  }
+
+  /* Better handling of background colors */
+  .bg-blue-900,
+  .bg-blue-800,
+  .from-blue-900,
+  .to-blue-800 {
+    background-color: #1e3a8a !important;
+  }
+
+  /* Ensure images fit on page */
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}

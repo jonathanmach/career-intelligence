@@ -4,7 +4,7 @@ import { registerTemplate } from './TemplateRegistry';
 
 const ClassicTemplate: React.FC<CVTemplateProps> = ({ data }) => {
   return (
-    <div className="max-w-4xl mx-auto p-12 bg-white print:p-8 shadow-xl rounded-lg">
+    <div className="max-w-4xl mx-auto p-12 bg-white print:p-[1.5cm] shadow-xl rounded-lg print:w-full print:max-w-none print:mx-auto">
       {/* Header Section */}
       <header className="text-center mb-10 pb-8 border-b-2 border-gray-800">
         <h1 className="text-5xl font-bold text-gray-900 mb-3 tracking-tight">
@@ -112,11 +112,11 @@ const ClassicTemplate: React.FC<CVTemplateProps> = ({ data }) => {
                   <p className="text-gray-700 leading-relaxed mb-3">{job.summary}</p>
                 )}
                 {job.highlights && job.highlights.length > 0 && (
-                  <ul className="space-y-1.5">
+                  <ul className="space-y-1">
                     {job.highlights.map((highlight, i) => (
                       <li key={i} className="text-gray-700 flex items-start">
                         <span className="text-blue-600 mr-2 mt-1.5 flex-shrink-0">•</span>
-                        <span className="leading-relaxed">{highlight}</span>
+                        <span className="leading-snug">{highlight}</span>
                       </li>
                     ))}
                   </ul>
@@ -231,11 +231,11 @@ const ClassicTemplate: React.FC<CVTemplateProps> = ({ data }) => {
                   <p className="text-gray-700 leading-relaxed mb-2">{project.description}</p>
                 )}
                 {project.highlights && project.highlights.length > 0 && (
-                  <ul className="space-y-1">
+                  <ul className="space-y-0.5">
                     {project.highlights.map((highlight, i) => (
                       <li key={i} className="text-gray-700 flex items-start text-sm">
                         <span className="text-blue-600 mr-2 mt-1 flex-shrink-0">•</span>
-                        <span>{highlight}</span>
+                        <span className="leading-snug">{highlight}</span>
                       </li>
                     ))}
                   </ul>

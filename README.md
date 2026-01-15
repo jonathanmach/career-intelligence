@@ -1,4 +1,4 @@
-# CV Intelligence
+# Career Intelligence
 
 Transform your GitHub YAML CV into a beautiful, printable resume with multiple professional templates.
 

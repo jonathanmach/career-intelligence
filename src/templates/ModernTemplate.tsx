@@ -4,10 +4,10 @@ import { registerTemplate } from './TemplateRegistry';
 
 const ModernTemplate: React.FC<CVTemplateProps> = ({ data }) => {
   return (
-    <div className="max-w-6xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden print:shadow-none">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-0">
+    <div className="max-w-6xl mx-auto bg-white shadow-2xl rounded-lg overflow-hidden print:shadow-none print:w-full print:max-w-none print:mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-3 print:grid-cols-3 gap-0">
         {/* Left Sidebar - 1/3 width */}
-        <div className="lg:col-span-1 bg-gradient-to-b from-slate-800 to-slate-900 text-white p-8 print:from-slate-800 print:to-slate-900">
+        <div className="lg:col-span-1 print:col-span-1 bg-gradient-to-b from-slate-800 to-slate-900 text-white p-8 print:p-[1.5cm] print:from-slate-800 print:to-slate-900">
           {/* Profile Image Placeholder */}
           {data.basics.image && (
             <div className="mb-8">
@@ -156,7 +156,7 @@ const ModernTemplate: React.FC<CVTemplateProps> = ({ data }) => {
         </div>
 
         {/* Main Content - 2/3 width */}
-        <div className="lg:col-span-2 p-10">
+        <div className="lg:col-span-2 print:col-span-2 p-10 print:p-[1.5cm]">
           {/* Name and Title */}
           <header className="mb-10">
             <h1 className="text-5xl font-bold text-gray-900 mb-3 tracking-tight">
@@ -203,11 +203,11 @@ const ModernTemplate: React.FC<CVTemplateProps> = ({ data }) => {
                       <p className="text-gray-700 mb-3 leading-relaxed">{job.summary}</p>
                     )}
                     {job.highlights && job.highlights.length > 0 && (
-                      <ul className="space-y-2">
+                      <ul className="space-y-1">
                         {job.highlights.map((highlight, i) => (
                           <li key={i} className="text-gray-700 flex items-start">
                             <span className="text-slate-800 mr-3 mt-1.5 flex-shrink-0 font-bold">▸</span>
-                            <span className="leading-relaxed">{highlight}</span>
+                            <span className="leading-snug">{highlight}</span>
                           </li>
                         ))}
                       </ul>
@@ -268,11 +268,11 @@ const ModernTemplate: React.FC<CVTemplateProps> = ({ data }) => {
                       <p className="text-gray-700 leading-relaxed mb-3">{project.description}</p>
                     )}
                     {project.highlights && project.highlights.length > 0 && (
-                      <ul className="space-y-1.5">
+                      <ul className="space-y-0.5">
                         {project.highlights.map((highlight, i) => (
                           <li key={i} className="text-gray-700 flex items-start text-sm">
                             <span className="text-slate-800 mr-2 mt-1 flex-shrink-0 font-bold">▸</span>
-                            <span>{highlight}</span>
+                            <span className="leading-snug">{highlight}</span>
                           </li>
                         ))}
                       </ul>

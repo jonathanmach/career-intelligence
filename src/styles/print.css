@@ -19,7 +19,7 @@
   /* Set page size and margins */
   @page {
     size: A4;
-    margin: 1.5cm;
+    margin: 1cm;
   }
 
   /* Prevent page breaks in unwanted places */
@@ -29,8 +29,8 @@
   }
 
   section {
-    page-break-inside: avoid;
-    break-inside: avoid;
+    page-break-inside: auto;
+    break-inside: auto;
   }
 
   /* Ensure print-specific backgrounds are visible */

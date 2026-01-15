@@ -4,7 +4,7 @@ import { DarkModeToggle } from './DarkModeToggle';
 import { IndustryScorePanel } from './IndustryScorePanel';
 
 export const HomePage: React.FC = () => {
-  const [repoInput, setRepoInput] = useState('');
+  const [repoInput, setRepoInput] = useState('jonathanmach/cv');
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -31,7 +31,7 @@ export const HomePage: React.FC = () => {
           {/* Header */}
           <div className="text-center mb-8">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              CV Intelligence
+              Career Intelligence
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
               Transform your GitHub YAML CV into a beautiful, printable resume

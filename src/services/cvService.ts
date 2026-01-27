@@ -36,7 +36,7 @@ export async function fetchCVDataWithYAML(repoUrl?: string): Promise<CVDataWithY
       rawUrl = DEFAULT_GITHUB_RAW_URL;
     }
 
-    const response = await fetch(rawUrl);
+    const response = await fetch(rawUrl, { cache: 'no-store' });
 
     if (!response.ok) {
       throw new Error(`Failed to fetch CV: ${response.statusText} (${rawUrl})`);

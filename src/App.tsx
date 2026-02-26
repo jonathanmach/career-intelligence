@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useParams } from 'react-router-dom';
+import { HashRouter, Routes, Route, useParams } from 'react-router-dom';
 import { HomePage } from './components/HomePage';
 import { CVRenderer } from './components/CVRenderer';
 import './templates'; // Import to trigger template registration
@@ -22,12 +22,12 @@ function CVViewerRoute() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/cv/*" element={<CVViewerRoute />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

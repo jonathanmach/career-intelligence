@@ -399,8 +399,9 @@ export const IndustryScorePanel: React.FC<IndustryScorePanelProps> = ({ classNam
     { name: 'Data Viz', demand: 63, fit: 70, roles: 11 },
   ];
 
-  const hoveredRoles = hoveredSkill ? roleDetails[hoveredSkill] ?? [] : [];
-  const selectedRoles = selectedSkill ? roleDetails[selectedSkill] ?? [] : [];
+  const roleDetailsMap = roleDetails as Record<string, { title: string; company: string; location: string; link: string; snippet: string }[]>;
+  const hoveredRoles = hoveredSkill ? roleDetailsMap[hoveredSkill] ?? [] : [];
+  const selectedRoles = selectedSkill ? roleDetailsMap[selectedSkill] ?? [] : [];
 
   const roleClusters = [
     { name: 'ML Platform Engineer', score: 78, trend: '+12%' },
